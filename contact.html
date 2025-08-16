@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="all-content">
+        <div class="sidebar">
+            <div class="sidebar-main-div">
+                <div class="logo">
+                    <a href="index.html"><img src="img/Vayuz_logo-Dqd8BhyI.png" alt=""></a>
+                </div>
+                <div class="contact-us">
+                    <a href="contact.html">CONTACT US</a>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="#">App Development</a></li>
+                    <li><a href="#">Challenges</a></li>
+                    <li><a href="#">Hire Developer</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+
+            <div class="image-box">
+                <img src="img/vayunz img.png" alt="desk setup">
+                <p>Lorem ipsum dolor sit amet consectetur. Enim tempor posuere rutrum.</p>
+            </div>
+        </div>
+
+
+
+        <div class="contact-details">
+            <div class="headd">
+                <h1>Securing Your Flutter App: Best Practices and Techniques</h1>
+            </div>
+            <div class="details">
+                <h2>Submitted Contact Details</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="contactTableBody"></tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script>
+
+        let contactData = JSON.parse(localStorage.getItem("contactDetails"));
+
+        if (contactData) {
+            let tableBody = document.getElementById("contactTableBody");
+            let row = `
+                <tr>
+                    <td>1</td>
+                    <td>${contactData.name}</td>
+                    <td>${contactData.email}</td>
+                    <td>${contactData.phone}</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn" onclick="deleteContact()">Delete</button>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML = row;
+        }
+
+        function deleteContact() {
+            localStorage.removeItem("contactDetails");
+            document.getElementById("contactTableBody").innerHTML = "";
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
